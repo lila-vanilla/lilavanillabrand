@@ -7,6 +7,6 @@ const products = [
             en: "Guipure Top"
         },
         price: 2200,
-        image: "images/top1.jpg"
+        image: "images/top1.png"
     }
 ];

@@ -100,3 +100,16 @@ footer {
     background: white;
     margin-top: 40px;
 }
+
+.gallery {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    scroll-snap-type: x mandatory;
+}
+
+.gallery img {
+    width: 280px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+}

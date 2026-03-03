@@ -17,15 +17,39 @@ function renderProducts(category = "longsleeves") {
         .filter(p => p.category === category)
         .forEach(product => {
 
-           let gallery = `
-    <div class="gallery-wrapper">
-        <button class="arrow left" onclick="scrollGallery(this, -1)">‹</button>
-        <div class="gallery">
-            ${product.images.map(img => `<img src="${img}">`).join("")}
-        </div>
-        <button class="arrow right" onclick="scrollGallery(this, 1)">›</button>
-    </div>
-`;
+            container.innerHTML += `
+                <div class="card premium">
+
+                    <div class="image-block">
+                        <img class="main-image" src="${product.images[0]}" id="main-${product.id}">
+                        
+                        <div class="thumbs">
+                            ${product.images.map((img, index) =>
+                                `<img src="${img}" onclick="changeImage(${product.id}, '${img}')">`
+                            ).join("")}
+                        </div>
+                    </div>
+
+                    <h3>${product.name[currentLang]}</h3>
+
+                    <div class="sizes">
+                        ${product.sizes.map(size =>
+                            `<button onclick="selectSize(${product.id}, this)">${size}</button>`
+                        ).join("")}
+                    </div>
+
+                    <div class="price">${product.price} сом</div>
+
+                    <a class="btn disabled"
+                       id="btn-${product.id}"
+                       href="#">
+                       Выберите размер
+                    </a>
+
+                </div>
+            `;
+        });
+}
 
             container.innerHTML += `
                 <div class="card">
@@ -47,4 +71,25 @@ function scrollGallery(button, direction) {
         left: direction * 300,
         behavior: "smooth"
     });
+}
+
+function changeImage(productId, img) {
+    document.getElementById(`main-${productId}`).src = img;
+}
+
+function selectSize(productId, button) {
+    const card = button.closest(".card");
+    const buttons = card.querySelectorAll(".sizes button");
+
+    buttons.forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+
+    const size = button.innerText;
+    const product = products.find(p => p.id === productId);
+
+    const orderBtn = document.getElementById(`btn-${productId}`);
+    orderBtn.classList.remove("disabled");
+    orderBtn.innerText = "Заказать";
+    orderBtn.href =
+        `https://wa.me/996774729149?text=Здравствуйте, хочу заказать ${product.name[currentLang]} размер ${size}`;
 }

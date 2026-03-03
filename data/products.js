@@ -7,6 +7,7 @@ const products = [
             en: "Guipure long sleeve"
         },
         price: 2200,
+        sizes: ["S", "M", "L"],
        images: [
             "images/top_01/top_01_01.jpg",
             "images/top_01/top_01_02.jpg",

@@ -22,7 +22,7 @@ function renderProducts(category = "tops") {
                     <h3>${product.name[currentLang]}</h3>
                     <div class="price">${product.price} сом</div>
                     <a class="btn" 
-                       href="https://wa.me/996XXXXXXXXX?text=Здравствуйте, хочу заказать ${product.name[currentLang]}">
+                       href="https://wa.me/996774729149?text=Здравствуйте, хочу заказать ${product.name[currentLang]}">
                        Заказать
                     </a>
                 </div>

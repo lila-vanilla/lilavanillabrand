@@ -17,7 +17,7 @@ const products = [
             "images/top_01/top_01_07.jpg",
             "images/top_01/top_01_08.jpg",
             "images/top_01/top_01_09.jpg",
-            "images/top_01/top_01_010.jpg"
+            "images/top_01/top_01_10.jpg"
         ]
     }
 ];

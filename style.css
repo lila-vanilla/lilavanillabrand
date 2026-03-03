@@ -113,3 +113,42 @@ footer {
     flex-shrink: 0;
     scroll-snap-align: start;
 }
+
+.gallery-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.gallery {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    scroll-behavior: smooth;
+}
+
+.gallery img {
+    width: 280px;
+    flex-shrink: 0;
+}
+
+.arrow {
+    background: rgba(255,255,255,0.8);
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    padding: 10px;
+    color: #c98ca3;
+}
+
+.arrow:hover {
+    background: #c98ca3;
+    color: white;
+}
+
+/* Скрываем стрелки на телефоне */
+@media (max-width: 768px) {
+    .arrow {
+        display: none;
+    }
+}

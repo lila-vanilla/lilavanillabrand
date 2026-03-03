@@ -9,19 +9,26 @@ function filterCategory(category) {
     renderProducts(category);
 }
 
-function renderProducts(category = "tops") {
+function renderProducts(category = "longsleeves") {
     const container = document.getElementById("products");
     container.innerHTML = "";
 
     products
         .filter(p => p.category === category)
         .forEach(product => {
+
+            let gallery = `
+                <div class="gallery">
+                    ${product.images.map(img => `<img src="${img}">`).join("")}
+                </div>
+            `;
+
             container.innerHTML += `
                 <div class="card">
-                    <img src="${product.image}">
+                    ${gallery}
                     <h3>${product.name[currentLang]}</h3>
                     <div class="price">${product.price} сом</div>
-                    <a class="btn" 
+                    <a class="btn"
                        href="https://wa.me/996774729149?text=Здравствуйте, хочу заказать ${product.name[currentLang]}">
                        Заказать
                     </a>

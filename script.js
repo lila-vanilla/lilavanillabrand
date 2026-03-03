@@ -1,31 +1,37 @@
 let currentLang = "ru";
 
+// Переключение языка
 function setLang(lang) {
     currentLang = lang;
     renderProducts();
 }
 
+// Фильтр категории
 function filterCategory(category) {
     renderProducts(category);
 }
 
+// Рендер товаров
 function renderProducts(category = "longsleeves") {
     const container = document.getElementById("products");
     container.innerHTML = "";
 
     products
-        .filter(p => p.category === category)
+        .filter(product => product.category === category)
         .forEach(product => {
 
             container.innerHTML += `
                 <div class="card premium">
 
                     <div class="image-block">
-                        <img class="main-image" src="${product.images[0]}" id="main-${product.id}">
+                        <img class="main-image" 
+                             src="${product.images[0]}" 
+                             id="main-${product.id}">
                         
                         <div class="thumbs">
-                            ${product.images.map((img, index) =>
-                                `<img src="${img}" onclick="changeImage(${product.id}, '${img}')">`
+                            ${product.images.map(img =>
+                                `<img src="${img}" 
+                                      onclick="changeImage(${product.id}, '${img}')">`
                             ).join("")}
                         </div>
                     </div>
@@ -34,11 +40,15 @@ function renderProducts(category = "longsleeves") {
 
                     <div class="sizes">
                         ${product.sizes.map(size =>
-                            `<button onclick="selectSize(${product.id}, this)">${size}</button>`
+                            `<button onclick="selectSize(${product.id}, this)">
+                                ${size}
+                             </button>`
                         ).join("")}
                     </div>
 
-                    <div class="price">${product.price} сом</div>
+                    <div class="price">
+                        ${product.price} сом
+                    </div>
 
                     <a class="btn disabled"
                        id="btn-${product.id}"
@@ -51,45 +61,41 @@ function renderProducts(category = "longsleeves") {
         });
 }
 
-            container.innerHTML += `
-                <div class="card">
-                    ${gallery}
-                    <h3>${product.name[currentLang]}</h3>
-                    <div class="price">${product.price} сом</div>
-                    <a class="btn"
-                       href="https://wa.me/996774729149?text=Здравствуйте, хочу заказать ${product.name[currentLang]}">
-                       Заказать
-                    </a>
-                </div>
-            `;
-        });
-}
-
-function scrollGallery(button, direction) {
-    const gallery = button.parentElement.querySelector(".gallery");
-    gallery.scrollBy({
-        left: direction * 300,
-        behavior: "smooth"
-    });
-}
-
+// Смена главного фото
 function changeImage(productId, img) {
-    document.getElementById(`main-${productId}`).src = img;
+    const mainImg = document.getElementById(`main-${productId}`);
+    if (mainImg) {
+        mainImg.src = img;
+    }
 }
 
+// Выбор размера
 function selectSize(productId, button) {
     const card = button.closest(".card");
     const buttons = card.querySelectorAll(".sizes button");
 
+    // убрать active у всех
     buttons.forEach(btn => btn.classList.remove("active"));
+
+    // добавить active выбранному
     button.classList.add("active");
 
-    const size = button.innerText;
+    const size = button.innerText.trim();
     const product = products.find(p => p.id === productId);
 
     const orderBtn = document.getElementById(`btn-${productId}`);
+
     orderBtn.classList.remove("disabled");
-    orderBtn.innerText = "Заказать";
+    orderBtn.innerText = currentLang === "ru" ? "Заказать" : "Order";
+
     orderBtn.href =
-        `https://wa.me/996774729149?text=Здравствуйте, хочу заказать ${product.name[currentLang]} размер ${size}`;
+        `https://wa.me/996774729149?text=${encodeURIComponent(
+            (currentLang === "ru"
+                ? `Здравствуйте, хочу заказать ${product.name[currentLang]} размер ${size}`
+                : `Hello, I want to order ${product.name[currentLang]} size ${size}`
+            )
+        )}`;
 }
+
+// Первый запуск
+renderProducts();

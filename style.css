@@ -152,3 +152,56 @@ footer {
         display: none;
     }
 }
+
+.card.premium {
+    width: 400px;
+}
+
+.image-block {
+    margin-bottom: 20px;
+}
+
+.main-image {
+    width: 100%;
+}
+
+.thumbs {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    overflow-x: auto;
+}
+
+.thumbs img {
+    width: 70px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.thumbs img:hover {
+    opacity: 1;
+}
+
+.sizes {
+    margin: 15px 0;
+}
+
+.sizes button {
+    background: none;
+    border: 1px solid #c98ca3;
+    padding: 6px 14px;
+    margin-right: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sizes button.active {
+    background: #c98ca3;
+    color: white;
+}
+
+.btn.disabled {
+    background: #ddd;
+    pointer-events: none;
+}

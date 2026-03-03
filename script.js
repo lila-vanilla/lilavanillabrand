@@ -17,11 +17,15 @@ function renderProducts(category = "longsleeves") {
         .filter(p => p.category === category)
         .forEach(product => {
 
-            let gallery = `
-                <div class="gallery">
-                    ${product.images.map(img => `<img src="${img}">`).join("")}
-                </div>
-            `;
+           let gallery = `
+    <div class="gallery-wrapper">
+        <button class="arrow left" onclick="scrollGallery(this, -1)">‹</button>
+        <div class="gallery">
+            ${product.images.map(img => `<img src="${img}">`).join("")}
+        </div>
+        <button class="arrow right" onclick="scrollGallery(this, 1)">›</button>
+    </div>
+`;
 
             container.innerHTML += `
                 <div class="card">
@@ -35,4 +39,12 @@ function renderProducts(category = "longsleeves") {
                 </div>
             `;
         });
+}
+
+function scrollGallery(button, direction) {
+    const gallery = button.parentElement.querySelector(".gallery");
+    gallery.scrollBy({
+        left: direction * 300,
+        behavior: "smooth"
+    });
 }

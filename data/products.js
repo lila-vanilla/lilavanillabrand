@@ -8,6 +8,14 @@ const products = [
         },
         price: 2200,
         sizes: ["S", "M", "L"],
+        description: {
+            ru: "Нежный гипюровый топ с аккуратной посадкой. Подчёркивает силуэт.",
+            en: "Delicate guipure top with elegant fit. Highlights the silhouette."
+        },
+        care: {
+            ru: "Ручная стирка при 30°C. Не отбеливать.",
+            en: "Hand wash at 30°C. Do not bleach."
+        },
        images: [
             "images/top_01/top_01_01.jpg",
             "images/top_01/top_01_02.jpg",

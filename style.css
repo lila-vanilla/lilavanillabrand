@@ -1,262 +1,216 @@
+/* =========================
+   LILA VANILLA — PREMIUM STYLE
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background: #f7f5f6;
-    color: #4b3a3a;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #ffffff;
+  color: #2b2b2b;
+  line-height: 1.6;
+  padding-top: 160px; /* место под фиксированную шапку */
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 60px;
-    background: white;
+/* ================= HEADER ================= */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 140px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  border-bottom: 1px solid #f2e8ec;
 }
 
-.logo img {
-    height: 80px;
+.logo {
+  height: 95px;
+  object-fit: contain;
+  transition: transform 0.4s ease;
 }
 
-.lang-switch button {
-    background: none;
-    border: 1px solid #c98ca3;
-    color: #c98ca3;
-    padding: 6px 12px;
-    margin-left: 10px;
-    cursor: pointer;
-    transition: 0.3s;
+.logo:hover {
+  transform: scale(1.05);
 }
 
-.lang-switch button:hover {
-    background: #c98ca3;
-    color: white;
+/* ================= SECTION ================= */
+
+.section {
+  max-width: 1200px;
+  margin: 0 auto 80px;
+  padding: 0 20px;
 }
 
-nav {
-    padding: 20px 60px;
-    background: white;
+/* ================= PRODUCT ================= */
+
+.product-title {
+  font-size: 28px;
+  font-weight: 300;
+  margin-bottom: 10px;
 }
 
-.category {
-    background: none;
-    border: none;
-    font-size: 18px;
-    margin-right: 30px;
-    cursor: pointer;
-    color: #4b3a3a;
+.product-sizes {
+  margin-bottom: 10px;
+  font-size: 14px;
+  letter-spacing: 2px;
 }
 
-.category.active {
-    color: #c98ca3;
+.product-price {
+  font-size: 20px;
+  margin-bottom: 25px;
+  color: #c98ca3;
 }
 
-.products {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
-    padding: 60px;
-    justify-content: center;
-}
-
-.card {
-    width: 320px;
-    background: white;
-    padding: 20px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-    transition: 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.card img {
-    width: 100%;
-}
-
-.price {
-    font-weight: bold;
-    margin-top: 15px;
-    font-size: 18px;
-}
-
-.btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 20px;
-    background: #c98ca3;
-    color: white;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    opacity: 0.8;
-}
-
-footer {
-    text-align: center;
-    padding: 40px;
-    background: white;
-    margin-top: 40px;
-}
-
-.gallery {
-    display: flex;
-    overflow-x: auto;
-    gap: 10px;
-    scroll-snap-type: x mandatory;
-}
-
-.gallery img {
-    width: 280px;
-    flex-shrink: 0;
-    scroll-snap-align: start;
-}
+/* ================= GALLERY ================= */
 
 .gallery-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .gallery {
-    display: flex;
-    overflow-x: auto;
-    gap: 10px;
-    scroll-behavior: smooth;
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 15px;
+  padding-bottom: 10px;
+}
+
+.gallery::-webkit-scrollbar {
+  display: none;
 }
 
 .gallery img {
-    width: 280px;
-    flex-shrink: 0;
+  height: 420px;
+  border-radius: 12px;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  cursor: pointer;
 }
 
-.arrow {
-    background: rgba(255,255,255,0.8);
-    border: none;
-    font-size: 28px;
-    cursor: pointer;
-    padding: 10px;
-    color: #c98ca3;
+.gallery img:hover {
+  transform: scale(1.08);
 }
 
-.arrow:hover {
-    background: #c98ca3;
-    color: white;
+/* стрелки */
+
+.gallery-btn {
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.8);
+  border: none;
+  font-size: 24px;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
 }
 
-/* Скрываем стрелки на телефоне */
-@media (max-width: 768px) {
-    .arrow {
-        display: none;
-    }
+.gallery-btn:hover {
+  background: #f5dbe3;
 }
 
-.card.premium {
-    width: 400px;
+.gallery-btn.left {
+  left: 10px;
 }
 
-.image-block {
-    margin-bottom: 20px;
+.gallery-btn.right {
+  right: 10px;
 }
 
-.main-image {
-    width: 100%;
+/* ================= DESCRIPTION BLOCK ================= */
+
+.product-description {
+  margin-top: 40px;
+  max-width: 700px;
 }
 
-.thumbs {
-    display: flex;
-    gap: 8px;
-    margin-top: 10px;
-    overflow-x: auto;
+.product-description h3 {
+  font-weight: 400;
+  margin-bottom: 10px;
 }
 
-.thumbs img {
-    width: 70px;
-    cursor: pointer;
-    opacity: 0.7;
-    transition: 0.3s;
+.product-description p {
+  font-size: 15px;
+  color: #555;
 }
 
-.thumbs img:hover {
-    opacity: 1;
+/* ================= WHATSAPP BUTTON ================= */
+
+.order-btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 26px;
+  background-color: #c98ca3;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: 0.3s ease;
 }
 
-.sizes {
-    margin: 15px 0;
+.order-btn:hover {
+  background-color: #b87790;
 }
 
-.sizes button {
-    background: none;
-    border: 1px solid #c98ca3;
-    padding: 6px 14px;
-    margin-right: 8px;
-    cursor: pointer;
-    transition: 0.3s;
-}
+/* ================= LIGHTBOX ================= */
 
-.sizes button.active {
-    background: #c98ca3;
-    color: white;
-}
-
-.btn.disabled {
-    background: #ddd;
-    pointer-events: none;
-}
-
-/* Плавная анимация */
-.fade {
-    transition: opacity 0.3s ease;
-}
-
-/* Hover zoom как Zara */
-.zoom-container {
-    overflow: hidden;
-}
-
-.main-image {
-    width: 100%;
-    transition: transform 0.4s ease;
-    cursor: zoom-in;
-}
-
-.zoom-container:hover .main-image {
-    transform: scale(1.1);
-}
-
-/* Миниатюры */
-.thumbs img {
-    width: 70px;
-    cursor: pointer;
-    opacity: 0.7;
-    transition: 0.3s;
-}
-
-.thumbs img:hover {
-    opacity: 1;
-}
-
-/* Описание */
-.description {
-    margin-top: 15px;
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-/* Lightbox */
 .lightbox {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
 }
 
 .lightbox img {
-    max-width: 90%;
-    max-height: 90%;
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 12px;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+  body {
+    padding-top: 120px;
+  }
+
+  .site-header {
+    height: 110px;
+  }
+
+  .logo {
+    height: 75px;
+  }
+
+  .gallery img {
+    height: 300px;
+  }
+
+  .gallery-btn {
+    display: none;
+  }
 }

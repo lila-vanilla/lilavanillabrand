@@ -63,6 +63,13 @@ function filterCategory(category) {
 
 function setLanguage(lang) {
   currentLanguage = lang;
+
+  document.getElementById("lang-ru").style.color =
+    lang === "ru" ? "#c98ca3" : "#888";
+
+  document.getElementById("lang-en").style.color =
+    lang === "en" ? "#c98ca3" : "#888";
+
   renderProducts("longsleeves");
 }
 

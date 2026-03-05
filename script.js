@@ -44,7 +44,7 @@ function renderProducts(category) {
            : "Hello! I want to order " + product.name[currentLanguage]
          )}" 
          target="_blank">
-         ${currentLanguage === "ru" ? "Заказать" : "Order via WhatsApp"}
+         ${currentLanguage === "ru" ? "Заказать через WhatsApp" : "Order via WhatsApp"}
       </a>
     `;
 

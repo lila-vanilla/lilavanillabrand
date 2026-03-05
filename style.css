@@ -145,3 +145,18 @@ footer {
   border-top: 1px solid #eee;
   font-size: 13px;
 }
+
+.lang-switch {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lang-switch button {
+  background: none;
+  border: none;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 13px;
+}

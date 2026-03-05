@@ -1,3 +1,5 @@
+let currentLanguage = "ru";
+
 const productsContainer = document.getElementById("products");
 
 function renderProducts(category) {
@@ -11,14 +13,16 @@ function renderProducts(category) {
     productDiv.classList.add("product");
 
     productDiv.innerHTML = `
-      <h2 class="product-title">${product.name}</h2>
+      <h2 class="product-title">
+        ${product.name[currentLanguage]}
+      </h2>
 
       <div class="product-sizes">
         ${product.sizes.join(" · ")}
       </div>
 
       <div class="product-price">
-        ${product.price} ${product.currency}
+        ${product.price} ${product.currency[currentLanguage]}
       </div>
 
       <div class="gallery-wrapper">
@@ -30,13 +34,17 @@ function renderProducts(category) {
       </div>
 
       <div class="product-description">
-        ${product.description}
+        ${product.description[currentLanguage]}
       </div>
 
       <a class="order-btn" 
-         href="https://wa.me/996774729149?text=Здравствуйте! Хочу заказать ${product.name}" 
+         href="https://wa.me/996774729149?text=${encodeURIComponent(
+           currentLanguage === "ru"
+           ? "Здравствуйте! Хочу заказать " + product.name[currentLanguage]
+           : "Hello! I want to order " + product.name[currentLanguage]
+         )}" 
          target="_blank">
-         Заказать в WhatsApp
+         ${currentLanguage === "ru" ? "Заказать" : "Order via WhatsApp"}
       </a>
     `;
 
@@ -50,9 +58,12 @@ function scrollGallery(button, direction) {
 }
 
 function filterCategory(category) {
-  document.querySelectorAll(".category").forEach(btn => btn.classList.remove("active"));
-  event.target.classList.add("active");
   renderProducts(category);
+}
+
+function setLanguage(lang) {
+  currentLanguage = lang;
+  renderProducts("longsleeves");
 }
 
 renderProducts("longsleeves");

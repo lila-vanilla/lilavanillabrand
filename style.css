@@ -148,15 +148,18 @@ footer {
 
 .lang-switch {
   position: absolute;
+  top: 20px;
   right: 30px;
-  top: 50%;
-  transform: translateY(-50%);
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: #888;
 }
 
-.lang-switch button {
-  background: none;
-  border: none;
-  margin-left: 10px;
+.lang-switch span {
   cursor: pointer;
-  font-size: 13px;
+  transition: 0.3s ease;
+}
+
+.lang-switch span:hover {
+  color: #c98ca3;
 }

@@ -6,7 +6,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  padding-top: 200px; /* увеличили под новую высоту */
+  padding-top: 0px; /* увеличили под новую высоту */
   background: #fff;
   color: #222;
 }
@@ -14,7 +14,7 @@ body {
 /* HEADER */
 
 .site-header {
-  position: fixed;
+  position: relative;
   top: 0;
   width: 100%;
   height: 180px; /* было 140 */

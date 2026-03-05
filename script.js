@@ -101,7 +101,7 @@ function setLanguage(lang) {
   document.getElementById("lang-en").style.color =
     lang === "en" ? "#c98ca3" : "#888";
 
-  renderCategories();
+  renderCategories("longsleeves");
   renderProducts("longsleeves");
 }
 

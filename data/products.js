@@ -7,7 +7,10 @@ const products = [
             en: "Guipure long sleeve"
         },
         price: 2200,
-        currency: "сом",
+        currency: {
+            ru: "сом",
+            en: "KGS"
+        },
         sizes: ["S", "M", "L"],
         description: {
             ru: "Нежный гипюровый лонгслив с аккуратной посадкой. Подчёркивает силуэт.",

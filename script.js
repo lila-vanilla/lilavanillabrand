@@ -9,7 +9,7 @@ const categories = {
   }
 };
 
-function renderCategories() {
+function renderCategories(activeCategory = "longsleeves") {
   const nav = document.getElementById("category-nav");
   nav.innerHTML = "";
 
@@ -17,18 +17,21 @@ function renderCategories() {
     const button = document.createElement("button");
     button.classList.add("category");
 
+    if (catKey === activeCategory) {
+      button.classList.add("active");
+    }
+
     button.textContent = categories[catKey][currentLanguage];
 
     button.onclick = () => {
-      filterCategory(catKey);
-      document.querySelectorAll(".category")
-        .forEach(btn => btn.classList.remove("active"));
-      button.classList.add("active");
+      renderCategories(catKey); // перерисовываем категории
+      renderProducts(catKey);   // и товары
     };
 
     nav.appendChild(button);
   });
 }
+
 
 function renderProducts(category) {
   productsContainer.innerHTML = "";

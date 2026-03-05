@@ -40,8 +40,11 @@ body {
 
 .category {
   padding: 10px 20px;
-  border: 1px solid #c98ca3;
   background: none;
+  cursor: pointer;
+  color: #888;
+  background: none;
+  border: none;
   cursor: pointer;
 }
 
@@ -49,6 +52,10 @@ body {
 .category:hover {
   background: #c98ca3;
   color: white;
+}
+
+.category.active {
+  color: #c98ca3;
 }
 
 /* PRODUCTS */

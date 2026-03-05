@@ -6,7 +6,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  padding-top: 150px;
+  padding-top: 200px; /* увеличили под новую высоту */
   background: #fff;
   color: #222;
 }
@@ -17,7 +17,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 140px;
+  height: 180px; /* было 140 */
   background: white;
   display: flex;
   align-items: center;
@@ -27,7 +27,8 @@ body {
 }
 
 .logo {
-  height: 110px;
+  height: 150px; /* было 110 */
+  object-fit: contain;
 }
 
 /* NAV */

@@ -105,5 +105,4 @@ function setLanguage(lang) {
   renderProducts("longsleeves");
 }
 
-renderCategories();
 setLanguage("ru");

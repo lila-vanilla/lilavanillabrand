@@ -4,7 +4,7 @@ const products = [
         category: "longsleeves",
         name: {
             ru: "Гипюровый лонгслив",
-            en: "Guipure long sleeve"
+            en: "Guipure longsleeve"
         },
         price: 2200,
         currency: {

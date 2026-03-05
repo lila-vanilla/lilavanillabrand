@@ -74,3 +74,4 @@ function setLanguage(lang) {
 }
 
 renderProducts("longsleeves");
+setLanguage("ru");

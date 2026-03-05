@@ -2,6 +2,34 @@ let currentLanguage = "ru";
 
 const productsContainer = document.getElementById("products");
 
+const categories = {
+  tops: {
+    ru: "ЛОНГСЛИВЫ",
+    en: "LONGSLEEVES"
+  }
+};
+
+function renderCategories() {
+  const nav = document.getElementById("category-nav");
+  nav.innerHTML = "";
+
+  Object.keys(categories).forEach(catKey => {
+    const button = document.createElement("button");
+    button.classList.add("category");
+
+    button.textContent = categories[catKey][currentLanguage];
+
+    button.onclick = () => {
+      filterCategory(catKey);
+      document.querySelectorAll(".category")
+        .forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+    };
+
+    nav.appendChild(button);
+  });
+}
+
 function renderProducts(category) {
   productsContainer.innerHTML = "";
 
